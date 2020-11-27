@@ -1,20 +1,29 @@
 import React from 'react';
 
-class Form extends React.Component {
-    constructor() {
-        super();
+interface IFormProps {
+
+}
+
+interface IFormState {
+    name: string
+    submitted: boolean   
+}
+
+class Form extends React.Component<IFormProps, IFormState> {
+    constructor(props) {
+        super(props);
         this.state = { 
             name: null,
             submitted: false
         };
     }
 
-    onSubmit = (e) => {
+    onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         this.setState({submitted: true});
         e.preventDefault();
     }
 
-    onChange = (e) => {
+    onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({ name: e.target.value });
     }
 

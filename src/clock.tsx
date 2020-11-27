@@ -1,9 +1,19 @@
 import React from 'react';
 
-class Clock extends React.Component {
-    constructor() {
-        super();
+interface IClockProps {
+    
+}
+
+interface IClockState {
+    now: Date
+}
+
+class Clock extends React.Component<IClockProps, IClockState> {
+    timer: NodeJS.Timeout;
+    constructor(props) {
+        super(props);
         this.state = { now: new Date() };
+        this.timer = null;
     }
 
     componentDidMount() {

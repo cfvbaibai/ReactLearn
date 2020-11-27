@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom'
 import './index.css';
 import Game from './ttt.js'
 import Clock from './clock.js'
@@ -9,13 +9,11 @@ import Form from './form.js'
 // ========================================
 
 ReactDOM.render(
-    (
-        <div>
-            <LoginControl />
-            <Clock />
-            <Form />
-            <Game />
-        </div>
-    ),
+    <div>
+        <LoginControl />
+        < Clock />
+        <Form />
+        < Game />
+    </div>,
     document.getElementById('root')
 );

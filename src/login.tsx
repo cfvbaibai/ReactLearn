@@ -1,6 +1,6 @@
 import React from 'react';
 
-function UserGreetings(props) {
+function UserGreetings(props: ) {
     return <h1>Welcome back!</h1>
 }
 
@@ -8,15 +8,23 @@ function GuestGreetings(props) {
     return <h1>Please sign up!</h1>
 }
 
-function Greeting(props) {
-    const isLoggedIn = props.isLoggedIn;
+interface GreetingProps {
+    isLoggedIn: boolean;
+}
+
+function Greeting(props: GreetingProps) {
+    const isLoggedIn: boolean = props.isLoggedIn;
     if (isLoggedIn) {
         return <UserGreetings />;
     }
     return <GuestGreetings />;
 }
 
-function LoginButton(props) {
+interface LoginButtonProps {
+    onClick: React.MouseEventHandler<HTMLButtonElement>; 
+}
+
+function LoginButton(props: LoginButtonProps) {
     return (
         <button onClick={props.onClick}>
             Login
@@ -24,7 +32,7 @@ function LoginButton(props) {
     );
 }
 
-function LogoutButton(props) {
+function LogoutButton(props: LoginButtonProps) {
     return (
         <button onClick={props.onClick}>
             Logout
@@ -32,7 +40,7 @@ function LogoutButton(props) {
     );
 }
 
-class LoginControl extends React.Component {
+class LoginControl extends React.Component<LoginButtonProps, GreetingProps> {
     constructor(props) {
         super(props);
         this.state = { isLoggedIn: false }
