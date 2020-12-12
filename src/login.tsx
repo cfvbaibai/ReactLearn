@@ -1,10 +1,10 @@
 import React from 'react';
 
-function UserGreetings(props: ) {
+function UserGreetings(props: GreetingProps) {
     return <h1>Welcome back!</h1>
 }
 
-function GuestGreetings(props) {
+function GuestGreetings(props: GreetingProps) {
     return <h1>Please sign up!</h1>
 }
 
@@ -15,9 +15,9 @@ interface GreetingProps {
 function Greeting(props: GreetingProps) {
     const isLoggedIn: boolean = props.isLoggedIn;
     if (isLoggedIn) {
-        return <UserGreetings />;
+        return <UserGreetings isLoggedIn={true} />;
     }
-    return <GuestGreetings />;
+    return <GuestGreetings isLoggedIn={false} />;
 }
 
 interface LoginButtonProps {
@@ -41,7 +41,7 @@ function LogoutButton(props: LoginButtonProps) {
 }
 
 class LoginControl extends React.Component<LoginButtonProps, GreetingProps> {
-    constructor(props) {
+    constructor(props: LoginButtonProps) {
         super(props);
         this.state = { isLoggedIn: false }
     }

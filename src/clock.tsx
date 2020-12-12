@@ -9,8 +9,8 @@ interface IClockState {
 }
 
 class Clock extends React.Component<IClockProps, IClockState> {
-    timer: NodeJS.Timeout;
-    constructor(props) {
+    timer: NodeJS.Timeout | null;
+    constructor(props: IClockProps) {
         super(props);
         this.state = { now: new Date() };
         this.timer = null;
@@ -21,7 +21,7 @@ class Clock extends React.Component<IClockProps, IClockState> {
     }
 
     componentWillUnmount() {
-        clearInterval(this.timer);
+        clearInterval(this.timer as NodeJS.Timeout);
     }
 
     render() {
