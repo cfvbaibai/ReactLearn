@@ -5,12 +5,12 @@ interface IFormProps {
 }
 
 interface IFormState {
-    name: string
+    name: string | null
     submitted: boolean   
 }
 
 class Form extends React.Component<IFormProps, IFormState> {
-    constructor(props) {
+    constructor(props: IFormProps) {
         super(props);
         this.state = { 
             name: null,
