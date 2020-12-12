@@ -1,3 +1,4 @@
+import React from 'react'
 import * as ReactDOM from 'react-dom'
 import './index.css';
 import Game from './ttt.js'
@@ -10,10 +11,10 @@ import Form from './form.js'
 
 ReactDOM.render(
     <div>
-        <LoginControl />
-        < Clock />
+        <LoginControl onClick={() => { }} />
+        <Clock />
         <Form />
-        < Game />
+        <Game />
     </div>,
     document.getElementById('root')
 );
